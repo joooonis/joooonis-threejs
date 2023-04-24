@@ -48,7 +48,16 @@ function init() {
   ambientLight.position.set(3, 2, 1);
   scene.add(ambientLight);
 
-  renderer.render(scene, camera);
+  // 렌더링
+  function render() {
+    cube.rotation.x += 0.01; // 회전, 단위는 라디안
+    cube.position.y = Math.sin(cube.rotation.x); // sin 함수를 이용해 y축 이동
+    cube.scale.x = Math.cos(cube.rotation.x); // cos 함수를 이용해 크기 조절
+    renderer.render(scene, camera);
+    requestAnimationFrame(render); // 반복 호출
+  }
+
+  render();
 
   function handleResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
