@@ -52,8 +52,7 @@ function init() {
 
   // 렌더링
   function render() {
-    cube.rotation.x = Date.now() / 1000;
-    cube.rotation.y = clock.getElapsedTime();
+    cube.rotation.x += clock.getDelta();
     renderer.render(scene, camera);
     requestAnimationFrame(render); // 반복 호출
   }
