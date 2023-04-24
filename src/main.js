@@ -24,8 +24,15 @@ function init() {
 
   const geometry = new THREE.BoxGeometry(2, 2, 2);
   const material = new THREE.MeshStandardMaterial({
-    color: 0x00ff00,
+    // color: new THREE.Color('skyblue'),
+    // transparent: true, // 투명하게
+    // opacity: 0.5, // 투명도
+    // visible: false, // 보이지 않게
+    // wireframe: true, // 선만 보이게
+    // side: THREE.DoubleSide, // 양면 보이게
   });
+
+  material.color = new THREE.Color('0xff0000');
   const cube = new THREE.Mesh(geometry, material);
 
   scene.add(cube);
