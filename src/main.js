@@ -6,6 +6,7 @@ window.addEventListener('load', function () {
 function init() {
   const renderer = new THREE.WebGLRenderer({
     // alpha: true,
+    antialias: true,
   });
 
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -20,6 +21,16 @@ function init() {
     1,
     500
   );
+
+  const geometry = new THREE.BoxGeometry(2, 2, 2);
+  const material = new THREE.MeshBasicMaterial({
+    color: 0x00ff00,
+  });
+  const cube = new THREE.Mesh(geometry, material);
+
+  scene.add(cube);
+  camera.position.set(3, 4, 5);
+  camera.lookAt(cube.position);
 
   renderer.render(scene, camera);
 }
