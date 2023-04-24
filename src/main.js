@@ -49,4 +49,12 @@ function init() {
   scene.add(ambientLight);
 
   renderer.render(scene, camera);
+
+  function handleResize() {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight; // 카메라의 비율을 다시 설정
+    camera.updateProjectionMatrix(); // 카메라의 속성이 변경되었음을 알려줌
+    renderer.render(scene, camera);
+  }
+  window.addEventListener('resize', handleResize);
 }
